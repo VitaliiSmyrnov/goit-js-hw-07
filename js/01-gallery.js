@@ -20,3 +20,14 @@ const markup = galleryItems
 galleryContainer.insertAdjacentHTML('beforeend', markup);
 
 console.log(galleryItems);
+
+galleryContainer.addEventListener('click', onGalleryItemClick);
+
+function onGalleryItemClick(e) {
+  e.preventDefault();
+  const isTargetImg = e.target.classList.contains('gallery__image');
+  if (!isTargetImg) return;
+
+  const largeImgAncor = e.target.dataset.source;
+  console.log(largeImgAncor);
+}
