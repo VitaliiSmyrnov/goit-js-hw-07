@@ -29,5 +29,10 @@ function onGalleryItemClick(e) {
   if (!isTargetImg) return;
 
   const largeImgAncor = e.target.dataset.source;
-  console.log(largeImgAncor);
+
+  const largeImg = basicLightbox.create(`
+        <img src="${largeImgAncor}" width="800" height="600">
+    `);
+
+  largeImg.show();
 }
