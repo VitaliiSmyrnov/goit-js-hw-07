@@ -22,6 +22,7 @@ galleryContainer.insertAdjacentHTML('beforeend', markup);
 console.log(galleryItems);
 
 galleryContainer.addEventListener('click', onGalleryItemClick);
+let largeImg;
 
 function onGalleryItemClick(e) {
   e.preventDefault();
@@ -30,9 +31,18 @@ function onGalleryItemClick(e) {
 
   const largeImgAncor = e.target.dataset.source;
 
-  const largeImg = basicLightbox.create(`
+  largeImg = basicLightbox.create(`
         <img src="${largeImgAncor}" width="800" height="600">
     `);
 
   largeImg.show();
+
+  document.addEventListener('keydown', onModalWindowEscapePress);
+}
+
+function onModalWindowEscapePress(e) {
+  if (e.code === 'Escape') {
+    largeImg.close();
+    document.removeEventListener('keydown', onModalWindowEscapePress);
+  }
 }
