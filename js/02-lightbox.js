@@ -19,6 +19,5 @@ function onGalleryItemClick(e) {
   e.preventDefault();
   const isTargetImg = e.target.classList.contains('gallery__image');
   if (!isTargetImg) return;
-
-  let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: '250' });
 }
+let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: '250' });
